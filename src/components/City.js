@@ -22,7 +22,7 @@ export const City = () => {
   const [climaWeather, setClimaWeather] = useState('')
 
 
-  const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+  
 
   let hoy = new Date();
 
@@ -40,7 +40,7 @@ export const City = () => {
   let day = nd.getDay()
   useEffect(() => {
 
-    traerDatoUsuario(latLong[0], latLong[1], apiKey, setDatosCity, setDatosSemanaCity, setNombreCity, setClimaWeather, setIconWeather)
+    traerDatoUsuario(latLong[0], latLong[1], process.env.REACT_APP_API_KEY, setDatosCity, setDatosSemanaCity, setNombreCity, setClimaWeather, setIconWeather)
   }, [])
   
 

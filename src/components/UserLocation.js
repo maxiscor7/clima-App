@@ -12,7 +12,7 @@ import sun from '../videos/Sun.mp4'
 import moon from '../videos/Moon.mp4'
 
 export const UserLocation = () => {
-    const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+    
     const [datosUsuario, setDatosUsuario] = useState([])
     const [datosSemana, setDatosSemana] = useState([])
     const [nombrePais, setNombrePais] = useState('')
@@ -25,7 +25,7 @@ export const UserLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             let latitud = parseFloat(position.coords.latitude).toFixed(2)
             let longitud = parseFloat(position.coords.longitude).toFixed(2)
-            traerDatoUsuario(latitud, longitud, apiKey, setDatosUsuario, setDatosSemana, setNombrePais, setClimaWeather, setIconWeather)
+            traerDatoUsuario(latitud, longitud, process.env.REACT_APP_API_KEY, setDatosUsuario, setDatosSemana, setNombrePais, setClimaWeather, setIconWeather)
         })
     }, [paisVariable])
 

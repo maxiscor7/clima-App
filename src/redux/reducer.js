@@ -35,13 +35,11 @@ export default function paisReducer(state = initialState, action) {
 
 export const obtenerDatoUsuario = (ciudad) => async (dispatch, getState) => {
     try {   
-            const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
-            const {data} = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
+            const {data} = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
             dispatch({
                 type: TRAER_CITY_DATA,
                 payload: data,            
             })
-            
     } catch (error) {
         alert('Ciudada no encontrada')
     }
